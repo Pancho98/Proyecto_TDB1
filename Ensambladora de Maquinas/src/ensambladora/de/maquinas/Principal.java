@@ -29,9 +29,9 @@ public class Principal extends javax.swing.JFrame {
 
         jd_Creacion = new javax.swing.JDialog();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jb_Create = new javax.swing.JButton();
+        jb_Update = new javax.swing.JButton();
+        jb_Delete = new javax.swing.JButton();
         jd_Detalles = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -42,6 +42,9 @@ public class Principal extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jd_CreateM = new javax.swing.JDialog();
+        jd_UpdateM = new javax.swing.JDialog();
+        jd_DeleteM = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jb_Creacion = new javax.swing.JButton();
         jb_Detalles = new javax.swing.JButton();
@@ -50,19 +53,34 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("MS UI Gothic", 0, 36)); // NOI18N
         jLabel2.setText("Manejo de Maquinas");
 
-        jButton1.setFont(new java.awt.Font("MS UI Gothic", 0, 18)); // NOI18N
-        jButton1.setText("Creación de Maquina");
-
-        jButton2.setFont(new java.awt.Font("MS UI Gothic", 0, 18)); // NOI18N
-        jButton2.setText("Modificación de Maquinas");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        jb_Create.setFont(new java.awt.Font("MS UI Gothic", 0, 18)); // NOI18N
+        jb_Create.setText("Creación de Maquina");
+        jb_Create.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_CreateMouseClicked(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("MS UI Gothic", 0, 18)); // NOI18N
-        jButton3.setText("Eliminación de Maquinas");
+        jb_Update.setFont(new java.awt.Font("MS UI Gothic", 0, 18)); // NOI18N
+        jb_Update.setText("Modificación de Maquinas");
+        jb_Update.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_UpdateMouseClicked(evt);
+            }
+        });
+        jb_Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_UpdateActionPerformed(evt);
+            }
+        });
+
+        jb_Delete.setFont(new java.awt.Font("MS UI Gothic", 0, 18)); // NOI18N
+        jb_Delete.setText("Eliminación de Maquinas");
+        jb_Delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_DeleteMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_CreacionLayout = new javax.swing.GroupLayout(jd_Creacion.getContentPane());
         jd_Creacion.getContentPane().setLayout(jd_CreacionLayout);
@@ -75,12 +93,10 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(372, 372, 372))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_CreacionLayout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(436, 436, 436))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_CreacionLayout.createSequentialGroup()
-                        .addGroup(jd_CreacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3))
+                        .addGroup(jd_CreacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jb_Update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jb_Create, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jb_Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(424, 424, 424))))
         );
         jd_CreacionLayout.setVerticalGroup(
@@ -88,13 +104,13 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jd_CreacionLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(jLabel2)
-                .addGap(111, 111, 111)
-                .addComponent(jButton1)
-                .addGap(56, 56, 56)
-                .addComponent(jButton2)
+                .addGap(107, 107, 107)
+                .addComponent(jb_Create, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(60, 60, 60)
+                .addComponent(jb_Update)
                 .addGap(84, 84, 84)
-                .addComponent(jButton3)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addComponent(jb_Delete)
+                .addGap(110, 110, 110))
         );
 
         jLabel3.setFont(new java.awt.Font("MS UI Gothic", 0, 36)); // NOI18N
@@ -183,6 +199,39 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(114, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout jd_CreateMLayout = new javax.swing.GroupLayout(jd_CreateM.getContentPane());
+        jd_CreateM.getContentPane().setLayout(jd_CreateMLayout);
+        jd_CreateMLayout.setHorizontalGroup(
+            jd_CreateMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_CreateMLayout.setVerticalGroup(
+            jd_CreateMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jd_UpdateMLayout = new javax.swing.GroupLayout(jd_UpdateM.getContentPane());
+        jd_UpdateM.getContentPane().setLayout(jd_UpdateMLayout);
+        jd_UpdateMLayout.setHorizontalGroup(
+            jd_UpdateMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_UpdateMLayout.setVerticalGroup(
+            jd_UpdateMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jd_DeleteMLayout = new javax.swing.GroupLayout(jd_DeleteM.getContentPane());
+        jd_DeleteM.getContentPane().setLayout(jd_DeleteMLayout);
+        jd_DeleteMLayout.setHorizontalGroup(
+            jd_DeleteMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_DeleteMLayout.setVerticalGroup(
+            jd_DeleteMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INICIO");
 
@@ -267,9 +316,30 @@ public class Principal extends javax.swing.JFrame {
         jd_Informes.setLocationRelativeTo(null);
     }//GEN-LAST:event_jb_InformesMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jb_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_UpdateActionPerformed
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jb_UpdateActionPerformed
+
+    private void jb_CreateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CreateMouseClicked
+        jd_CreateM.pack();
+        jd_CreateM.setModal(true);
+        jd_CreateM.setVisible(true);
+        jd_CreateM.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jb_CreateMouseClicked
+
+    private void jb_UpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_UpdateMouseClicked
+        jd_UpdateM.pack();
+        jd_UpdateM.setModal(true);
+        jd_UpdateM.setVisible(true);
+        jd_UpdateM.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jb_UpdateMouseClicked
+
+    private void jb_DeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_DeleteMouseClicked
+        jd_DeleteM.pack();
+        jd_DeleteM.setModal(true);
+        jd_DeleteM.setVisible(true);
+        jd_DeleteM.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jb_DeleteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -307,9 +377,6 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -321,10 +388,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JButton jb_Creacion;
+    private javax.swing.JButton jb_Create;
+    private javax.swing.JButton jb_Delete;
     private javax.swing.JButton jb_Detalles;
     private javax.swing.JButton jb_Informes;
+    private javax.swing.JButton jb_Update;
     private javax.swing.JDialog jd_Creacion;
+    private javax.swing.JDialog jd_CreateM;
+    private javax.swing.JDialog jd_DeleteM;
     private javax.swing.JDialog jd_Detalles;
     private javax.swing.JDialog jd_Informes;
+    private javax.swing.JDialog jd_UpdateM;
     // End of variables declaration//GEN-END:variables
 }
